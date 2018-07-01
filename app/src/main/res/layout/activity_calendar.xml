@@ -8,45 +8,72 @@
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
     tools:context=".CalendarActivity">
-    <TextView
-        android:id="@+id/myDate"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp">
+    <TextView
+        android:id="@+id/myDate"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="48dp"
         android:text="Mark Your Date"
         android:textAlignment="center"
         android:textColor="#FFF"
-        android:textSize="23sp"
-        android:layout_marginLeft="105dp"
-        android:layout_marginTop="48dp"
-        />
+        android:textSize="23sp" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="34dp"
+        android:background="@drawable/bd_btn"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Save my date"
+        android:textColor="#FFF"
+
+        tools:visibility="visible" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="300dp"
-        android:background="@drawable/bg_calen"
         android:layout_height="wrap_content"
         android:layout_marginLeft="44dp"
-        android:layout_marginTop="48dp">
+        android:layout_marginTop="48dp"
+        android:background="@drawable/bg_calen"
+        android:orientation="vertical">
 
 
         <CalendarView
             android:id="@+id/calendarView"
             android:layout_width="wrap_content"
-            android:layout_height="310dp"
+            android:layout_height="326dp"
 
             >
 
         </CalendarView>
     </LinearLayout>
 
-    <Button
-        android:background="@drawable/bd_btn"
-        android:textColor="#FFF"
-        android:layout_marginLeft="120dp"
-        android:layout_marginTop="34dp"
-        android:text="Save my date"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/myEvent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:orientation="vertical"
+        android:visibility="invisible">
 
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="115dp"
+            android:layout_marginTop="48dp"
+            android:text="Baslık:"
+            android:textAlignment="center"
+            android:textColor="#FFF"
+            android:textSize="23sp" />
+
+
+    </LinearLayout>
 </LinearLayout>

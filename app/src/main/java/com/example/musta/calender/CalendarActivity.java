@@ -1,16 +1,20 @@
 package com.example.musta.calender;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
+
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class CalendarActivity extends AppCompatActivity {
 
@@ -61,6 +65,23 @@ public class CalendarActivity extends AppCompatActivity {
                 default: monthString = "Invalid month";
                     break;
             }
+                Button btn = (Button)findViewById(R.id.addBtn);
+
+                btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(CalendarActivity.this, AddEvent.class));
+                    }
+                });
+                Button btnB = (Button)findViewById(R.id.addBtn);
+
+                btnB.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(CalendarActivity.this,CalendarActivity.class));
+                    }
+                });
+
       //          Toast.makeText(getApplicationContext(),i2 +"/"+ i1 + "/" + i, Toast.LENGTH_LONG).show();
                 String date = i2 + "/" + monthString + "/" + i;
 
@@ -74,4 +95,9 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
     }
+    public void sendMessage(View view){
+        Intent intent=new Intent(this,AddEvent.class);
+        startActivity(intent);
+    }
+
 }

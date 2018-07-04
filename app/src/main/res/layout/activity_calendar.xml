@@ -23,19 +23,19 @@
         android:textColor="#FFF"
         android:textSize="23sp" />
 
-    <Button
-        android:id="@+id/addBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="34dp"
-        android:background="@drawable/bd_btn"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:text="Save my date"
-        android:textColor="#FFF"
-
-        tools:visibility="visible" />
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="34dp"
+            android:background="@drawable/bd_btn"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:text="Etkinlik Ekle"
+            android:onClick="sendMessage"
+            android:textColor="#FFF"
+            tools:visibility="visible" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="300dp"

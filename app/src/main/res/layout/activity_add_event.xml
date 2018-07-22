@@ -60,11 +60,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
+        android:onClick="backMessage"
         android:text="Ekle"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:onClick="backMessage"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -76,7 +76,6 @@
         android:layout_marginTop="72dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -90,7 +89,6 @@
         android:layout_marginTop="18dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/baslık"
         app:layout_constraintTop_toBottomOf="@+id/baslık" />

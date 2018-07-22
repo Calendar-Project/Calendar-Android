@@ -30,11 +30,12 @@
             android:layout_marginLeft="5dp"
             android:layout_marginTop="34dp"
             android:background="@drawable/bd_btn"
+            android:onClick="sendMessage"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
             android:text="Etkinlik Ekle"
-            android:onClick="sendMessage"
             android:textColor="#FFF"
+            android:visibility="visible"
             tools:visibility="visible" />
     </LinearLayout>
     <LinearLayout
@@ -59,7 +60,7 @@
     <LinearLayout
         android:id="@+id/myEvent"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         android:layout_marginLeft="44dp"
         android:orientation="vertical"
         android:visibility="invisible">
@@ -76,4 +77,12 @@
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="sendSearch"
+        android:text="ETKİNLİK ARA"
+        android:visibility="visible" />
 </LinearLayout>

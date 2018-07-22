@@ -22,7 +22,7 @@ public class CalendarActivity extends AppCompatActivity {
     TextView myDate;
     LinearLayout myEvent;
     Button btn;
-
+    public static final String EXTRA_MESSAGE = "com.example.musta.calender.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +81,14 @@ public class CalendarActivity extends AppCompatActivity {
                         startActivity(new Intent(CalendarActivity.this,CalendarActivity.class));
                     }
                 });
+                Button btnS = (Button)findViewById(R.id.buttonS);
 
+                btnS.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(CalendarActivity.this, SearchActivity.class));
+                    }
+                });
       //          Toast.makeText(getApplicationContext(),i2 +"/"+ i1 + "/" + i, Toast.LENGTH_LONG).show();
                 String date = i2 + "/" + monthString + "/" + i;
 
@@ -97,6 +104,10 @@ public class CalendarActivity extends AppCompatActivity {
     }
     public void sendMessage(View view){
         Intent intent=new Intent(this,AddEvent.class);
+        startActivity(intent);
+    }
+    public void sendSearch(View view){
+        Intent intent=new Intent(this,SearchActivity.class);
         startActivity(intent);
     }
 

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -27,7 +28,9 @@ import org.json.JSONObject;
 public class SearchActivity extends AppCompatActivity {
 
     Button buttonS;
+    String kelime="";
     TextView textView;
+    EditText editText;
     RequestQueue queue;
     String db, result,title,text,start_date,start_time,end_time,end_date;
 
@@ -38,6 +41,7 @@ public class SearchActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         textView = findViewById(R.id.textView);
+        editText = findViewById(R.id.kelime);
         buttonS = findViewById(R.id.buttonS);
         String keyword = intent.getStringExtra(CalendarActivity.EXTRA_MESSAGE);
         textView.setText(keyword);
@@ -46,29 +50,38 @@ public class SearchActivity extends AppCompatActivity {
         buttonS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                search();
+                kelime=editText.getText().toString();
+                kelime=kelime.toLowerCase();
+                search(kelime);
             }
         });
     }
 
-    private void search(){
+    private void search(final String kelime){
         db = "http://marvelous-wind-cave-84354.herokuapp.com/api/v1/rendezvous_data.json";
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, db, new Response.Listener<String>() {
+        StringRequest stringRequest;
+        stringRequest = new StringRequest(Request.Method.GET, db, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                result = "";
+                result = "Bulunan etkinlikler : \n ----------- \n";
+                int size=0;
                 try {
                     JSONArray appointments = new JSONArray(response);
-                    for(int i = 0; i < appointments.length(); i++){
+                    for(int i = 0; i < appointments.length(); i++) {
                         JSONObject appointment = (JSONObject) appointments.get(i);
                         title = appointment.getString("title");
-                        text = appointment.getString("text");
-                        start_date = appointment.getString("start_date");
-                        start_time = appointment.getString("start_time");
-                        end_time = appointment.getString("end_time");
-                        end_date = appointment.getString("end_date");
-                        result += title + " " + title + " " + start_date+" "+start_time+" "+end_time+" "+end_date + "\n";
+                        if (title.equalsIgnoreCase(kelime)) {
+                            text = appointment.getString("text");
+                            start_date = appointment.getString("start_date");
+                            start_time = appointment.getString("start_time");
+                            end_time = appointment.getString("end_time");
+                            end_date = appointment.getString("end_date");
+                            size ++;
+                            result += "Title: " + title + "\n" + "Text: " + text + "\n" + "Start date: " + start_date + "   Start time: " + start_time + "\n" + "End Date: " + end_date + "   End time: " + end_time + "\n" + "-------------\n";
+                        }
                     }
+                    if (size==0)
+                        result="Etkinlik bulunamadı";
                 } catch (JSONException e) {
                     textView.setText("Error Json!");
                 }

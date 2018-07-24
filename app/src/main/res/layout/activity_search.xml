@@ -2,10 +2,48 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/etkinlik"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:visibility="visible"
     tools:context=".SearchActivity"
     tools:layout_editor_absoluteY="25dp">
+
+    <EditText
+        android:id="@+id/kelime"
+        android:layout_width="175dp"
+        android:layout_height="77dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/baslik2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/baslik2"
+        android:layout_width="165dp"
+        android:layout_height="34dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="40dp"
+        android:text="    Aranılacak Etkinlik"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonS"
+        app:layout_constraintEnd_toStartOf="@+id/kelime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonS"
@@ -20,14 +58,16 @@
         android:text="SEARCH"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.769"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="39dp"
+        android:layout_width="309dp"
+        android:layout_height="318dp"
+        android:layout_marginBottom="62dp"
         android:layout_marginEnd="31dp"
         android:layout_marginLeft="31dp"
         android:layout_marginRight="31dp"
@@ -35,6 +75,6 @@
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonS" />
+        app:layout_constraintStart_toStartOf="parent" />
+
 </android.support.constraint.ConstraintLayout>

@@ -4,6 +4,7 @@ package com.example.musta.calender;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,6 +42,7 @@ public class SearchActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         textView = findViewById(R.id.textView);
+        textView.setMovementMethod(new ScrollingMovementMethod());
         editText = findViewById(R.id.kelime);
         buttonS = findViewById(R.id.buttonS);
         String keyword = intent.getStringExtra(CalendarActivity.EXTRA_MESSAGE);

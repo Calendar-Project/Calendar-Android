@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateActivity"
+    tools:layout_editor_absoluteY="25dp">
+
+    <EditText
+        android:id="@+id/BitisSaat"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="17dp"
+        android:ems="10"
+        android:inputType="time"
+        android:visibility="visible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/BitisTar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/basTar" />
+
+    <TextView
+        android:id="@+id/baslik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="84dp"
+        android:text="Başlık"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/aciklama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="43dp"
+        android:text="Açıklama"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/baslik" />
+
+    <TextView
+        android:id="@+id/BasT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:text="Başlangıç Tarihi"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/basTar"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/biT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="27dp"
+        android:text="Bitiş Tarihi"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/basTar" />
+
+    <Button
+        android:id="@+id/update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Güncelle"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/baslık"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginTop="72dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/acıklama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/baslık"
+        app:layout_constraintTop_toBottomOf="@+id/baslık" />
+
+    <TextView
+        android:id="@+id/basS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="14dp"
+        android:text="Saati"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/basSaat"
+        app:layout_constraintStart_toStartOf="@+id/basSaat" />
+
+    <TextView
+        android:id="@+id/bitS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Saati"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/basSaat"
+        app:layout_constraintTop_toBottomOf="@+id/basSaat" />
+
+    <EditText
+        android:id="@+id/basSaat"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:ems="10"
+        android:inputType="time"
+        android:visibility="visible"
+        app:layout_constraintBaseline_toBaselineOf="@+id/basTar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/basTar" />
+
+    <EditText
+        android:id="@+id/basTar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="11dp"
+        android:layout_marginStart="16dp"
+        android:ems="10"
+        android:hint="yıl-ay-gün"
+        android:inputType="date"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/basSaat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/BitisTar"
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="56dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="19dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="53dp"
+        android:ems="10"
+        android:hint="yıl-ay-gün"
+        android:inputType="date"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/update"
+        app:layout_constraintEnd_toStartOf="@+id/BitisSaat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/biT" />
+
+</android.support.constraint.ConstraintLayout>

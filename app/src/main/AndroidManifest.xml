@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".AddEvent" />
         <activity android:name=".SearchActivity" />
-        <activity android:name=".AgainActivity" />
+
         <activity android:name=".UpdateActivity"></activity>
     </application>
 

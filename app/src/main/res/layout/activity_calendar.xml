@@ -120,7 +120,7 @@
                 android:onClick="sendUpdate"
                 android:text="GÜNCELLE"
                 android:textColor="#FFF"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/deleteButton"
@@ -131,7 +131,7 @@
                 android:background="@drawable/bd_btn"
                 android:text="SİL"
                 android:textColor="#FFF"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
         </LinearLayout>
     </LinearLayout>

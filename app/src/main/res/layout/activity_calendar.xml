@@ -8,40 +8,57 @@
     android:orientation="vertical"
     tools:context=".CalendarActivity">
 
+    <Button
+        android:id="@+id/buttonS"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/bd_btn"
+        android:onClick="sendSearch"
+        android:textColor="#FFF"
+        android:text="ETKİNLİK ARA"
+        android:visibility="visible" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bd_btn"
+        android:onClick="sendMessage"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Etkinlik Ekle"
+        android:textColor="#FFF"
+        android:visibility="visible"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="0dp"
+        android:text="Görüntülemek istediğiniz tarihe iki kere tıklayınız"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/myDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="0dp"
+        android:text="Mark Your Date"
+        android:textAlignment="center"
+        android:textColor="#FFF"
+        android:textSize="23sp" />
+
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp">
-
-        <TextView
-            android:id="@+id/myDate"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="31dp"
-            android:layout_marginTop="48dp"
-            android:text="Mark Your Date"
-            android:textAlignment="center"
-            android:textColor="#FFF"
-            android:textSize="23sp" />
-
-        <Button
-            android:id="@+id/addBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="34dp"
-            android:background="@drawable/bd_btn"
-            android:onClick="sendMessage"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:text="Etkinlik Ekle"
-            android:textColor="#FFF"
-            android:visibility="visible"
-            tools:visibility="visible" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="44dp"
         android:layout_marginRight="44dp"
@@ -63,17 +80,19 @@
 
     <LinearLayout
         android:id="@+id/myEvent"
-        android:layout_width="300dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginLeft="44dp"
+        android:layout_marginRight="44dp"
         android:orientation="vertical"
         android:visibility="visible">
 
         <TextView
             android:id="@+id/eventText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
             android:scrollbars="vertical"
             android:text="Baslık:"
@@ -81,15 +100,39 @@
             android:textColor="#FFF"
             android:textSize="23sp" />
 
+        <LinearLayout
+            android:id="@+id/buttonLayer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:orientation="horizontal"
+            android:visibility="visible">
 
+            <Button
+                android:id="@+id/updateButton"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/bd_btn"
+                android:text="GÜNCELLE"
+                android:textColor="#FFF"
+                android:visibility="visible" />
+
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginRight="40dp"
+                android:background="@drawable/bd_btn"
+                android:text="SİL"
+                android:textColor="#FFF"
+                android:visibility="visible" />
+
+        </LinearLayout>
     </LinearLayout>
-
-    <Button
-        android:id="@+id/buttonS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="sendSearch"
-        android:text="ETKİNLİK ARA"
-        android:visibility="visible" />
 
 </LinearLayout>

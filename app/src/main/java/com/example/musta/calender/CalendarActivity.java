@@ -38,7 +38,7 @@ public class CalendarActivity extends AppCompatActivity {
     CalendarView calendarView;
     TextView myDate,eventText;
     LinearLayout myEvent;
-    Button btn;
+    Button btn,updateButton,deleteButton;
     StringRequest stringRequest;
     public RequestQueue queue;
     String result,text,title,start_date,start_time,end_date,end_time;
@@ -58,6 +58,8 @@ public class CalendarActivity extends AppCompatActivity {
         myEvent = (LinearLayout) findViewById(R.id.myEvent);
         eventText = (TextView) findViewById(R.id.eventText);
         eventText.setMovementMethod(new ScrollingMovementMethod());
+        updateButton = (Button) findViewById(R.id.updateButton);
+        deleteButton = (Button) findViewById(R.id.deleteButton);
         String keyword = intent.getStringExtra(CalendarActivity.EXTRA_MESSAGE);
         eventText.setText(keyword);
 
@@ -131,20 +133,10 @@ public class CalendarActivity extends AppCompatActivity {
                         startActivity(new Intent(CalendarActivity.this, SearchActivity.class));
                     }
                 });
-                //          Toast.makeText(getApplicationContext(),i2 +"/"+ i1 + "/" + i, Toast.LENGTH_LONG).show();
                 String date = i2 + "/" + monthString + "/" + i;
 
                 myDate.setText(date);
-                //if(result.length() < 1)
-                //   result = "boş";
-                //eventText.setText(result);
-               eventText.setText(findEvent(searchDate));
-//                if(myEvent.getVisibility() == View.INVISIBLE) {
-//                    myEvent.setVisibility(View.VISIBLE);
-//                }else if (myEvent.getVisibility() == View.VISIBLE)
-//                    myEvent.setVisibility(View.INVISIBLE);
-                //    Toast.makeText(getApplicationContext(), i2 + "/" + i1 + "/" + i, Toast.LENGTH_LONG).show();
-
+                eventText.setText(findEvent(searchDate));
             }
         });
     }
@@ -180,8 +172,15 @@ public class CalendarActivity extends AppCompatActivity {
                             result += "Title: " + title + "\n" + "Text: " + text + "\n" + "Start date: " + start_date +  "\n" + "   Start time: " + start_time + "\n" + "End Date: " + end_date +  "\n"+"   End time: " + end_time + "\n" + "-------------\n";
                         }
                     }
-                    if (size==0)
-                        result="Etkinlik bulunamadı";
+                    if (size==0) {
+                        result = "Etkinlik bulunamadı";
+                        updateButton.setVisibility(View.INVISIBLE);
+                        deleteButton.setVisibility(View.INVISIBLE);
+                    }
+                    else{
+                        updateButton.setVisibility(View.VISIBLE);
+                        deleteButton.setVisibility(View.VISIBLE);
+                    }
                 } catch (JSONException e) {
                    result =("Error Json!");
                 }

@@ -117,6 +117,7 @@
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/bd_btn"
+                android:onClick="sendUpdate"
                 android:text="GÜNCELLE"
                 android:textColor="#FFF"
                 android:visibility="gone" />

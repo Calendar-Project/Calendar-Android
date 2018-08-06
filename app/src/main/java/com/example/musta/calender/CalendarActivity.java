@@ -42,6 +42,7 @@ public class CalendarActivity extends AppCompatActivity {
     StringRequest stringRequest;
     public RequestQueue queue;
     String result,text,title,start_date,start_time,end_date,end_time;
+    public String searchDate="";
     String db = "http://marvelous-wind-cave-84354.herokuapp.com/api/v1/rendezvous_data.json";
     public static final String EXTRA_MESSAGE = "com.example.musta.calender.MESSAGE";
 
@@ -69,7 +70,7 @@ public class CalendarActivity extends AppCompatActivity {
 
             @Override
             public void onSelectedDayChange(@NonNull CalendarView calendarView, int i, int i1, int i2) {
-                final String monthString,searchDate,day,month;
+                final String monthString,day,month;
                 if(i2 < 10)
                     day = 0 + "" + i2;
                 else
@@ -151,6 +152,11 @@ public class CalendarActivity extends AppCompatActivity {
     }
     public void sendSearch(View view){
         Intent intent=new Intent(this,SearchActivity.class);
+        startActivity(intent);
+    }
+    public void sendUpdate(View view){
+        Intent intent=new Intent(this,UpdateActivity.class);
+        intent.putExtra("key",searchDate);
         startActivity(intent);
     }
 

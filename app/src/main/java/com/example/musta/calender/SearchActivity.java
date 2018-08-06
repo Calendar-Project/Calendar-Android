@@ -63,48 +63,48 @@ public class SearchActivity extends AppCompatActivity {
         db = "http://marvelous-wind-cave-84354.herokuapp.com/api/v1/rendezvous_data.json";
         StringRequest stringRequest;
         stringRequest = new StringRequest(Request.Method.GET, db, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                result = "Bulunan etkinlikler : \n ----------- \n";
-                int size=0;
-                try {
-                    JSONArray appointments = new JSONArray(response);
-                    for(int i = 0; i < appointments.length(); i++) {
-                        JSONObject appointment = (JSONObject) appointments.get(i);
-                        title = appointment.getString("title");
-                        if (title.equalsIgnoreCase(kelime)) {
-                            text = appointment.getString("text");
-                            start_date = appointment.getString("start_date");
-                            start_time = appointment.getString("start_time");
-                            end_time = appointment.getString("end_time");
-                            end_date = appointment.getString("end_date");
-                            size ++;
-                            result += "Title: " + title + "\n" + "Text: " + text + "\n" + "Start date: " + start_date + "   Start time: " + start_time + "\n" + "End Date: " + end_date + "   End time: " + end_time + "\n" + "-------------\n";
-                        }
+        @Override
+        public void onResponse(String response) {
+            result = "Bulunan etkinlikler : \n ----------- \n";
+            int size=0;
+            try {
+                JSONArray appointments = new JSONArray(response);
+                for(int i = 0; i < appointments.length(); i++) {
+                    JSONObject appointment = (JSONObject) appointments.get(i);
+                    title = appointment.getString("title");
+                    if (title.equalsIgnoreCase(kelime)) {
+                        text = appointment.getString("text");
+                        start_date = appointment.getString("start_date");
+                        start_time = appointment.getString("start_time");
+                        end_time = appointment.getString("end_time");
+                        end_date = appointment.getString("end_date");
+                        size ++;
+                        result += "Title: " + title + "\n" + "Text: " + text + "\n" + "Start date: " + start_date + "   Start time: " + start_time + "\n" + "End Date: " + end_date + "   End time: " + end_time + "\n" + "-------------\n";
                     }
-                    if (size==0)
-                        result="Etkinlik bulunamadı";
-                } catch (JSONException e) {
-                    textView.setText("Error Json!");
                 }
-                textView.setText(result);
+                if (size==0)
+                    result="Etkinlik bulunamadı";
+            } catch (JSONException e) {
+                textView.setText("Error Json!");
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                if (error instanceof NoConnectionError)
-                    textView.setText(( "1"));
-                else if  (error instanceof AuthFailureError)
-                    textView.setText(( "2"));
-                else if  (error instanceof ServerError)
-                    textView.setText(( "3"));
-                else if  (error instanceof NetworkError)
-                    textView.setText(( "4"));
-                else if  (error instanceof ParseError)
-                    textView.setText(( "5"));
-              //  textView.setText("Error Volley!");
-            }
-        });
+            textView.setText(result);
+        }
+    }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+            if (error instanceof NoConnectionError)
+                textView.setText(( "1"));
+            else if  (error instanceof AuthFailureError)
+                textView.setText(( "2"));
+            else if  (error instanceof ServerError)
+                textView.setText(( "3"));
+            else if  (error instanceof NetworkError)
+                textView.setText(( "4"));
+            else if  (error instanceof ParseError)
+                textView.setText(( "5"));
+            //  textView.setText("Error Volley!");
+        }
+    });
         queue.add(stringRequest);
-    }
+}
 }

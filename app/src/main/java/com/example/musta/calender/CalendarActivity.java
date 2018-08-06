@@ -40,7 +40,7 @@ public class CalendarActivity extends AppCompatActivity {
     LinearLayout myEvent;
     Button btn;
     StringRequest stringRequest;
-    RequestQueue queue;
+    public RequestQueue queue;
     String result,text,title,start_date,start_time,end_date,end_time;
     String db = "http://marvelous-wind-cave-84354.herokuapp.com/api/v1/rendezvous_data.json";
     public static final String EXTRA_MESSAGE = "com.example.musta.calender.MESSAGE";

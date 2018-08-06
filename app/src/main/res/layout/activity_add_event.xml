@@ -78,7 +78,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:onClick="backMessage"
         android:text="Ekle"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"

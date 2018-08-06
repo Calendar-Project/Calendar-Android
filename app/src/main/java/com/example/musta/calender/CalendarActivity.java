@@ -109,8 +109,13 @@ public class CalendarActivity extends AppCompatActivity {
                     default: monthString = "Invalid month";
                         break;
                 }
+                deleteButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        deleteEvent(searchDate);
+                    }
+                });
                 Button btn = (Button)findViewById(R.id.addBtn);
-
                 btn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -195,6 +200,45 @@ public class CalendarActivity extends AppCompatActivity {
         });
         queue.add(stringRequest);
         return result;
+    }
+
+
+    private void deleteEvent(final String searchDate){
+        db = "http://marvelous-wind-cave-84354.herokuapp.com/api/v1/rendezvous_data.json";
+        stringRequest = new StringRequest(Request.Method.DELETE, db, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                result = "";
+                int size=0;
+                try {
+                    JSONArray appointments = new JSONArray(response);
+                    for(int i = 0; i < appointments.length(); i++) {
+                        JSONObject appointment = (JSONObject) appointments.get(i);
+                        start_date = appointment.getString("start_date");
+                        if (start_date.equalsIgnoreCase(searchDate)) {
+                            title = appointment.getString("title");
+                            text = appointment.getString("text");
+                            start_date = appointment.getString("start_date");
+                            start_time = appointment.getString("start_time");
+                            end_time = appointment.getString("end_time");
+                            end_date = appointment.getString("end_date");
+                            size ++;
+                            result += "Title: " + title + "\n" + "Text: " + text + "\n" + "Start date: " + start_date +  "\n" + "   Start time: " + start_time + "\n" + "End Date: " + end_date +  "\n"+"   End time: " + end_time + "\n" + "-------------\n";
+                        }
+                    }
+                } catch (JSONException e) {
+                    result =("Error Json!");
+                }
+                //tv.setText(result);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                if (error instanceof NoConnectionError)
+                    result = (( "1"));
+            }
+        });
+        queue.add(stringRequest);
     }
 
 }

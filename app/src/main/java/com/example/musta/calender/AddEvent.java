@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -29,7 +30,9 @@ public class AddEvent extends AppCompatActivity {
     String db;
     EditText editText1,editText2,editText3,editText4,editText5,editText6;
     Button add;
+    RadioButton tekrarlama,ayButton,haftaButton;
     public ProgressDialog progress;
+    StringRequest jsonForPostRequest;
 
 
     @Override
@@ -43,6 +46,10 @@ public class AddEvent extends AppCompatActivity {
         editText4 = findViewById(R.id.basSaat);
         editText5 = findViewById(R.id.BitisTar);
         editText6 = findViewById(R.id.BitisSaat);
+        tekrarlama = findViewById(R.id.tekrarlamaButton);
+        ayButton = findViewById(R.id.ayButton);
+        haftaButton = findViewById(R.id.haftaButton);
+
         db = "http://marvelous-wind-cave-84354.herokuapp.com/api/v1/rendezvous_data.json";
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +61,7 @@ public class AddEvent extends AppCompatActivity {
 
 
 
-                StringRequest jsonForPostRequest = new StringRequest(
+                jsonForPostRequest = new StringRequest(
                         Request.Method.POST,db,
                         new Response.Listener<String>() {
                             @Override
@@ -110,15 +117,34 @@ public class AddEvent extends AppCompatActivity {
                     @Override
                     protected Map<String, String> getParams() throws AuthFailureError {
                         Map<String,String> params = new HashMap<String, String>();
+                        if(tekrarlama.isChecked()) {
+                            params.put("title", editText1.getText().toString());
+                            params.put("text", editText2.getText().toString());
+                            params.put("start_date", editText3.getText().toString());
+                            params.put("start_time", editText4.getText().toString());
+                            params.put("end_time", editText5.getText().toString());
+                            params.put("end_date", editText6.getText().toString());
 
-                        params.put("title",editText1.getText().toString());
-                        params.put("text",editText2.getText().toString());
-                        params.put("start_date",editText3.getText().toString());
-                        params.put("start_time",editText4.getText().toString());
-                        params.put("end_time",editText5.getText().toString());
-                        params.put("end_date",editText6.getText().toString());
+                        }
+                        else if(haftaButton.isChecked()){
 
+                        }
+                        else if(ayButton.isChecked()){
 
+                            String yilString = editText3.getText().toString().substring(0,4);
+                            String ayString = editText3.getText().toString().substring(5,7);
+                            String gunString = editText3.getText().toString().substring(8,10);
+                            int ay = Integer.parseInt(ayString);
+                            int tekrarSayisi = (12-ay);
+                            Map[] mapArr = new Map[tekrarSayisi];
+                            for (int i = 0; i<=tekrarSayisi; i++){
+                                mapArr[i] = addMonth(ay,yilString,gunString,params);
+                                ay+=1;
+                            }
+                          //  for (int i = 0; i<=tekrarSayisi; i++){
+
+                            //}
+                        }
                         return params;
                     }
 
@@ -141,9 +167,22 @@ public class AddEvent extends AppCompatActivity {
             }
         });
     }
-    public void goToAgain(View view){
-        Intent intent=new Intent(this,AgainActivity.class);
-        startActivity(intent);
+
+        public Map addMonth(int ay,String yilString, String gunString, Map params){
+
+            params.put("title", editText1.getText().toString());
+            params.put("text", editText2.getText().toString());
+            if(ay<10){
+                params.put("start_date", yilString+"-"+ "0"+(ay)+"-"+gunString);
+                ay+=1;
+            }else {
+                params.put("start_date", yilString+"-"+(ay)+"-"+gunString);
+                ay+=1;
+            }
+            params.put("start_time", editText4.getText().toString());
+            params.put("end_time", editText5.getText().toString());
+            params.put("end_date", editText6.getText().toString());
+            return params;
         }
 
 }

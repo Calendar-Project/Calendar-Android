@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "770784397635",
+    "firebase_url": "https://calendar-android-29648.firebaseio.com",
+    "project_id": "calendar-android-29648",
+    "storage_bucket": "calendar-android-29648.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770784397635:android:87f0f3cef0390c23",
+        "android_client_info": {
+          "package_name": "com.example.musta.calender"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770784397635-6msos83f4jeps3r7omrfp1mcs6j7gd57.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrTXCne8sAvuUfGyTaK2xxDHm5fQYt1RE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

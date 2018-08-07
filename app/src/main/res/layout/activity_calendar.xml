@@ -110,12 +110,25 @@
             android:visibility="visible">
 
             <Button
-                android:id="@+id/updateButton"
-                android:layout_width="100dp"
+                android:id="@+id/tekrarButton"
+                android:layout_width="75dp"
                 android:layout_height="30dp"
                 android:layout_marginBottom="0dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:background="@drawable/bd_btn"
+                android:onClick="sendTekrar"
+                android:text="TEKRARLA"
+                android:textColor="#FFF"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/updateButton"
+                android:layout_width="75dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:background="@drawable/bd_btn"
                 android:onClick="sendUpdate"
                 android:text="GÜNCELLE"
@@ -124,10 +137,10 @@
 
             <Button
                 android:id="@+id/deleteButton"
-                android:layout_width="100dp"
+                android:layout_width="75dp"
                 android:layout_height="30dp"
                 android:layout_marginBottom="0dp"
-                android:layout_marginRight="40dp"
+                android:layout_marginRight="15dp"
                 android:background="@drawable/bd_btn"
                 android:text="SİL"
                 android:textColor="#FFF"

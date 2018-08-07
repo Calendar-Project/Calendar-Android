@@ -38,7 +38,7 @@ public class CalendarActivity extends AppCompatActivity {
     CalendarView calendarView;
     TextView myDate,eventText;
     LinearLayout myEvent;
-    Button btn,updateButton,deleteButton;
+    Button btn,updateButton,deleteButton,tekrarButton;
     StringRequest stringRequest;
     public RequestQueue queue;
     String result,text,title,start_date,start_time,end_date,end_time;
@@ -61,6 +61,7 @@ public class CalendarActivity extends AppCompatActivity {
         eventText.setMovementMethod(new ScrollingMovementMethod());
         updateButton = (Button) findViewById(R.id.updateButton);
         deleteButton = (Button) findViewById(R.id.deleteButton);
+        tekrarButton = (Button) findViewById(R.id.tekrarButton);
         String keyword = intent.getStringExtra(CalendarActivity.EXTRA_MESSAGE);
         eventText.setText(keyword);
 
@@ -159,6 +160,10 @@ public class CalendarActivity extends AppCompatActivity {
         intent.putExtra("key",searchDate);
         startActivity(intent);
     }
+    public void sendTekrar(View view){
+        Intent intent=new Intent(this,AgainActivity.class);
+        startActivity(intent);
+    }
 
     private String findEvent(final String kelime){
         db = "http://marvelous-wind-cave-84354.herokuapp.com/api/v1/rendezvous_data.json";
@@ -187,10 +192,12 @@ public class CalendarActivity extends AppCompatActivity {
                         result = "Etkinlik bulunamadı";
                         updateButton.setVisibility(View.INVISIBLE);
                         deleteButton.setVisibility(View.INVISIBLE);
+                        tekrarButton.setVisibility(View.INVISIBLE);
                     }
                     else{
                         updateButton.setVisibility(View.VISIBLE);
                         deleteButton.setVisibility(View.VISIBLE);
+                        tekrarButton.setVisibility(View.VISIBLE);
                     }
                 } catch (JSONException e) {
                    result =("Error Json!");

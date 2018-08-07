@@ -122,8 +122,8 @@ public class AddEvent extends AppCompatActivity {
                             params.put("text", editText2.getText().toString());
                             params.put("start_date", editText3.getText().toString());
                             params.put("start_time", editText4.getText().toString());
-                            params.put("end_time", editText5.getText().toString());
-                            params.put("end_date", editText6.getText().toString());
+                            params.put("end_time", editText6.getText().toString());
+                            params.put("end_date", editText5.getText().toString());
 
 
                         }

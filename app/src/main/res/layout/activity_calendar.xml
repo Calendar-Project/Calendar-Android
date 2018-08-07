@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="vertical"
     android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
     tools:context=".CalendarActivity">
@@ -83,6 +84,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="44dp"
+        android:scrollbars="vertical"
         android:layout_marginRight="44dp"
         android:orientation="vertical"
         android:visibility="visible">
@@ -94,7 +96,6 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
-            android:scrollbars="vertical"
             android:text="Baslık:"
             android:textAlignment="center"
             android:textColor="#FFF"
@@ -103,7 +104,7 @@
         <LinearLayout
             android:id="@+id/buttonLayer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="0dp"
             android:orientation="horizontal"
